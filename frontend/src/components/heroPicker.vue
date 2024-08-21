@@ -82,6 +82,6 @@ function toggleMenu() {
 
 function setOption(option: Hero) {
 	emit('selected', option);
-	// isOpen.value = false;
+	isOpen.value = false;
 }
 </script>
