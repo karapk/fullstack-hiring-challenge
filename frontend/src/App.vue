@@ -82,7 +82,7 @@ function handleUpdate(input) {
 				type="button"
 				v-on:click="doBonus"
 			>
-				BONUS {{ bonus > 0 ? `(${bonus})` : '' }}
+				BONUS {{ bonus > 0 ? `(${bonus})` : '' }} ✨
 			</button>
 		</div>
 		<div v-if="hero" class="bg-slate-400 text-black rounded flex gap-2">
