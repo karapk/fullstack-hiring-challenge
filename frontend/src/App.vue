@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import AchillesAvatar from './assets/images/heros/achilles.png';
+import HerculesAvatar from './assets/images/heros/hercules.png';
+import OdysseusAvatar from './assets/images/heros/odysseus.png';
 import heroPicker from './components/heroPicker.vue';
-import AchillesAvatar from '../public/heros/achilles.png';
-import HerculesAvatar from '../public/heros/hercules.png';
-import OdysseusAvatar from '../public/heros/odysseus.png';
 
 import type { Hero } from './types';
 

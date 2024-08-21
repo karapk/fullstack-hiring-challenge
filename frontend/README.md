@@ -23,6 +23,7 @@ Must complete all of these challenges:
     + Dropdown menu now closes when a hero selection is made.  
 
 - [ ] Ensure all hero stats equal a sum of `20` plus the current amount of bonus. This total should never be above `25` with the bonus included.
+
 - [ ] Add keyboard controls for the drop down hero select button and menu item to be accessible
 - [ ] Fix the image so it matches the rounding of its container and doesn’t change width/height when it changes
 
