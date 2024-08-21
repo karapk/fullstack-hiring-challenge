@@ -17,6 +17,7 @@ Must complete all of these challenges:
 
 - [x] Fix any functional issues with the component that don’t match Vue 3 Component standards and best  pracices outline on the Vue 3 Docs.
     + fixed the mutation of props as per Vue3, props are meant to be pased down from parent component and should not be changed directly by parent. Changed line 83 to 85 whereby an event called selected is emitted with the chosen option. 
+    + Added type = "button" to explicitly tell browser that the button is not intended for form submission and improved accesability. 
 
 - [x] Fix the dropdown menu from remaining open always after a hero selection is made.
     + Dropdown menu now closes when a hero selection is made.  
