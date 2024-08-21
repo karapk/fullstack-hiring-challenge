@@ -80,8 +80,8 @@ function toggleMenu() {
 	isOpen.value = !isOpen.value;
 }
 
-function setOption(input) {
-	props.value = input;
-	emit('selected', input);
+function setOption(option: Hero) {
+	emit('selected', option);
+	// isOpen.value = false;
 }
 </script>

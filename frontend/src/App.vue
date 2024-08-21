@@ -35,7 +35,7 @@ const hero = ref<Hero | null>(null);
 
 const bonus = ref(0);
 function doBonus() {
-	if (bonus > 5) {
+	if (bonus.value > 5) {
 		return alert('Only 5 bonus allowed!');
 	}
 	bonus.value++; // increase bonus!
