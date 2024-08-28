@@ -43,7 +43,7 @@ function doBonus() {
 	bonus.value++; // increase bonus!
 }
 
-function handleUpdate(input) {
+function handleUpdate(input: Hero) {
 	console.log('change', input);
 	hero.value = input;
 }
