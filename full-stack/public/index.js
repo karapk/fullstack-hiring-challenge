@@ -8,15 +8,15 @@ async function getUsers() {
 	const fetchURL = new URL('/api/users', window.location.origin);
 	fetchURL.searchParams.set('maxUsers', maxUsersElement.value);
 
-	const users = await fetch(fetchURL.href);
-	if (users.ok) {
-		const usersJson = await users.json();
-		let output = '<ul>';
-		for (const user of usersJson) {
-			output += `<li>${user.name.title} ${user.name.first} ${user.name.last}</li>`;
-		}
-		output += '</ul>';
-		outputElement.innerHTML = output;
+	try {
+		const response = await fetch(fetchURL.href);
+		if (!response.ok) { throw new Error('Network response was not ok'); }
+		const usersJson = await response.json();
+
+		const userItems = usersJson.map(user => `<li>${user.name.title} ${user.name.first} ${user.name.last}</li>`).join('');
+		outputElement.innerHTML = `<ul>${userItems}</ul>`;
+	} catch (error) {
+		outputElement.textContent = `Error: ${error.message}`;
 	}
 }
 
