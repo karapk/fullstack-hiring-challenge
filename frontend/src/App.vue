@@ -96,13 +96,13 @@ function handleUpdate(input: Hero) {
 				"
 			>
 			<div>
-				<h2 class="uppercase text-xs mb-4">
+				<h2 class="uppercase text-xs mb-1x p-2">
 					Hero Summary
 				</h2>
-				<p>
+				<p class="p-2">
 					<span v-text="hero.name"></span>
 				</p>
-				<dl>
+				<dl class="p-2">
 					<dt class="uppercse text-sm">
 						Speed:
 					</dt>

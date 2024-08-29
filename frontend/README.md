@@ -32,6 +32,6 @@ Must complete all of these challenges:
 Please complete at least 2 of these additional challenges:
 
 - [ ] Implement a "clear hero" feature after a hero selection is made, to return to the default `null` state.
-- [ ] Fix the style so the Selection button doesn’t break line and takes up empty space from the Bonus Button. The fix should not allow the text to overflow into sibling elements
+- [x] Fix the style so the Selection button doesn’t break line and takes up empty space from the Bonus Button. The fix should not allow the text to overflow into sibling elements
 - [x] Make the box centered on the page using just TailwindCSS and a css flex-based solution.
  -used h-screen to ensure the body took up the whole screen then centered the body with flex items-center and justify-center
