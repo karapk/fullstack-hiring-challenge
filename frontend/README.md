@@ -25,7 +25,9 @@ Must complete all of these challenges:
 - [ ] Ensure all hero stats equal a sum of `20` plus the current amount of bonus. This total should never be above `25` with the bonus included.
 
 - [ ] Add keyboard controls for the drop down hero select button and menu item to be accessible
-- [ ] Fix the image so it matches the rounding of its container and doesn’t change width/height when it changes
+- [x] Fix the image so it matches the rounding of its container and doesn’t change width/height when it changes
+    + Added rounded as a class on img to match container rounding
+    + Added object-fit: cover to ensure it maintains aspect ratio
 
 Please complete at least 2 of these additional challenges:
 
