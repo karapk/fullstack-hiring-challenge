@@ -36,12 +36,15 @@ const heros = ref<Hero[]>([
 const hero = ref<Hero | null>(null);
 
 const bonus = ref(0);
+const totalStats = ref(0);
+
 function doBonus() {
-	if (bonus.value > 5) {
+	if (bonus.value >= 5) {
 		return alert('Only 5 bonus allowed!');
 	}
 	bonus.value++; // increase bonus!
 }
+
 
 function handleUpdate(input: Hero) {
 	console.log('change', input);
@@ -79,6 +82,7 @@ function clearHero() {
 					text-sm
 					text-red-400
 					border-red-500
+					hover:bg-red-700
 					border
 					p-4
 					px-4
