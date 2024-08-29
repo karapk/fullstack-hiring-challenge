@@ -68,9 +68,15 @@ import { ref } from 'vue';
 
 import type { Hero } from '../types';
 import type { PropType } from 'vue';
-const props = defineProps({
-	value: Object as PropType<Hero | null>,
-	options: Array as PropType<Hero[]>,
+const { value, options } = defineProps({
+	value: {
+		type: Object as PropType<Hero | null>,
+		default: null,
+	},
+	options: {
+		type: Array as PropType<Hero[]>,
+		default: () => [],
+	},
 });
 
 const emit = defineEmits(['selected']);

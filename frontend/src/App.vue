@@ -47,6 +47,9 @@ function handleUpdate(input: Hero) {
 	console.log('change', input);
 	hero.value = input;
 }
+function clearHero() {
+	hero.value = null;
+}
 </script>
 
 <template>
@@ -73,6 +76,22 @@ function handleUpdate(input: Hero) {
 			></heroPicker>
 			<button
 				class="
+					text-sm
+					text-red-400
+					border-red-500
+					border
+					p-4
+					px-4
+					py-2
+					rounded
+					"
+				type="button"
+				v-on:click="clearHero"
+			>
+				Clear Hero
+			</button>
+			<button
+				class="
 					border-green-500
 					text-sm text-green-400
 					border
@@ -84,7 +103,7 @@ function handleUpdate(input: Hero) {
 				type="button"
 				v-on:click="doBonus"
 			>
-				BONUS {{ bonus > 0 ? `(${bonus})` : '' }} ✨
+				BONUS ✨{{ bonus > 0 ? `(${bonus})` : '' }} ✨
 			</button>
 		</div>
 		<div v-if="hero" class="bg-slate-400 text-black rounded flex gap-2">
