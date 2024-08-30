@@ -1,5 +1,5 @@
 const urls = new Set();
-
+console.log("checked-fetch.js");
 function checkURL(request, init) {
 	const url =
 		request instanceof URL

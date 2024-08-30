@@ -145,3 +145,4 @@ node_modules/
 .mf
 /fullstack/.wrangler
 *.json
+/full-stack/.wrangler
