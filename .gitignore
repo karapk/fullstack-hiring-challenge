@@ -144,3 +144,4 @@ node_modules/
 .dev.vars
 .mf
 /fullstack/.wrangler
+*.json

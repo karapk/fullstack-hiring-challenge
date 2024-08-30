@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+
+
+import AchillesAvatar from './assets/images/heros/achilles.png';
+import HerculesAvatar from './assets/images/heros/hercules.png';
+import OdysseusAvatar from './assets/images/heros/odysseus.png';
 import heroPicker from './components/heroPicker.vue';
-import AchillesAvatar from '../public/heros/achilles.png';
-import HerculesAvatar from '../public/heros/hercules.png';
-import OdysseusAvatar from '../public/heros/odysseus.png';
 
 import type { Hero } from './types';
 
@@ -34,16 +36,22 @@ const heros = ref<Hero[]>([
 const hero = ref<Hero | null>(null);
 
 const bonus = ref(0);
+// const totalStats = ref(0);
+
 function doBonus() {
-	if (bonus.value > 5) {
+	if (bonus.value >= 5) {
 		return alert('Only 5 bonus allowed!');
 	}
 	bonus.value++; // increase bonus!
 }
 
-function handleUpdate(input) {
+
+function handleUpdate(input: Hero) {
 	console.log('change', input);
 	hero.value = input;
+}
+function clearHero() {
+	hero.value = null;
 }
 </script>
 
@@ -70,6 +78,25 @@ function handleUpdate(input) {
 				v-on:selected="handleUpdate"
 			></heroPicker>
 			<button
+				aria-label="Clear Hero"
+				class="
+					text-sm
+					text-red-400
+					border-red-500
+					hover:bg-red-700
+					border
+					p-4
+					px-4
+					py-2
+					rounded
+					"
+				type="button"
+				v-on:click="clearHero"
+			>
+				Clear Hero
+			</button>
+			<button
+				aria-label="Bonus"
 				class="
 					border-green-500
 					text-sm text-green-400
@@ -82,19 +109,25 @@ function handleUpdate(input) {
 				type="button"
 				v-on:click="doBonus"
 			>
-				BONUS {{ bonus > 0 ? `(${bonus})` : '' }} ✨
+				BONUS ✨{{ bonus > 0 ? `(${bonus})` : '' }} ✨
 			</button>
 		</div>
 		<div v-if="hero" class="bg-slate-400 text-black rounded flex gap-2">
-			<img v-bind:src="hero.avatar" class="w-52">
+			<img
+				v-bind:src="hero.avatar"
+				class="w-52
+				rounded
+				object-fit: cover
+				"
+			>
 			<div>
-				<h2 class="uppercase text-xs mb-4">
+				<h2 class="uppercase text-xs mb-1x p-2">
 					Hero Summary
 				</h2>
-				<p>
+				<p class="p-2">
 					<span v-text="hero.name"></span>
 				</p>
-				<dl>
+				<dl class="p-2">
 					<dt class="uppercse text-sm">
 						Speed:
 					</dt>

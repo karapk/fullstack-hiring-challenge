@@ -17,6 +17,10 @@
 				focus-visible:ring-indigo-500
 				focus-visible:ring-opacity-75
 			"
+			role="button"
+			tabindex="0"
+			haspopup="true"
+			v-bind:expanded="isOpen"
 			v-on:click="toggleMenu"
 		>
 			<span v-if="!value">Select a Hero</span>
@@ -36,6 +40,7 @@
 				rounded-md
 				shadow-lg
 			"
+			role="menu"
 		>
 			<li v-for="option in options" v-bind:key="option.name" class="py-1">
 				<a
@@ -49,6 +54,7 @@
 						hover:bg-slate-700
 						gap-2
 					"
+					v-bind:tabindex="isOpen ? 0 : -1"
 					v-on:click="setOption(option)"
 				>
 					<img
@@ -64,17 +70,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+
+import { onMounted, onUnmounted, ref } from 'vue';
 
 import type { Hero } from '../types';
 import type { PropType } from 'vue';
-const props = defineProps({
-	value: Object as PropType<Hero | null>,
-	options: Array as PropType<Hero[]>,
+
+const { value, options } = defineProps({
+	value: {
+		type: Object as PropType<Hero | null>,
+		default: null,
+	},
+	options: {
+		type: Array as PropType<Hero[]>,
+		default: () => [],
+	},
 });
 
 const emit = defineEmits(['selected']);
 const isOpen = ref(false);
+const selectedItem = ref(0);
 
 function toggleMenu() {
 	isOpen.value = !isOpen.value;
@@ -84,4 +99,47 @@ function setOption(option: Hero) {
 	emit('selected', option);
 	isOpen.value = false;
 }
+
+function focusMenuItem(index: number) {
+	const items = document.querySelectorAll('li');
+	if (items[index]) {
+		(items[index].firstChild as HTMLElement).focus();
+	}
+}
+
+function handleGlobalKeydown(event: KeyboardEvent) {
+	if (event.key === ' ') {
+		toggleMenu();
+		event.preventDefault();
+	}
+
+	if (event.key === 'Escape') {
+		isOpen.value = false;
+	}
+
+	if (isOpen.value) {
+		if (event.key === 'ArrowDown') {
+			if (selectedItem.value >= options.length - 1) {
+				selectedItem.value = 0;
+			} else {
+				selectedItem.value++;
+			}
+			focusMenuItem(selectedItem.value);
+		} else if (event.key === 'ArrowUp') {
+			if (selectedItem.value <= 0) {
+				selectedItem.value = options.length - 1;
+			} else {
+				selectedItem.value--;
+			}
+			focusMenuItem(selectedItem.value);
+		}
+	}
+}
+onMounted(() => {
+	document.addEventListener('keydown', handleGlobalKeydown);
+});
+
+onUnmounted(() => {
+	document.removeEventListener('keydown', handleGlobalKeydown);
+});
 </script>
