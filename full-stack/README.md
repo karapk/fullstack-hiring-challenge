@@ -19,6 +19,7 @@ There are some issues with this project that need to be investigated and fixed. 
 Please complete at least 2 of these challenges.
 
 - [x] The API to retrieve users is very slow. How can we speed it up while still always returning 10 random users? Please demonstrate a solution.
+	+ Instead of using for loop for each user retireved all 10 rather than having to fetch them one by one
 
 - [ ] This currently only works in the browser using client-side JavaScript.
 	- How can we make this work with JavaScript disabled? Think about server-side rendering and progressive enhancement. Please demonstrate a solution.
