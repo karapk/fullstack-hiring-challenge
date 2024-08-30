@@ -36,7 +36,7 @@ const heros = ref<Hero[]>([
 const hero = ref<Hero | null>(null);
 
 const bonus = ref(0);
-const totalStats = ref(0);
+// const totalStats = ref(0);
 
 function doBonus() {
 	if (bonus.value >= 5) {
@@ -78,6 +78,7 @@ function clearHero() {
 				v-on:selected="handleUpdate"
 			></heroPicker>
 			<button
+				aria-label="Clear Hero"
 				class="
 					text-sm
 					text-red-400
@@ -95,6 +96,7 @@ function clearHero() {
 				Clear Hero
 			</button>
 			<button
+				aria-label="Bonus"
 				class="
 					border-green-500
 					text-sm text-green-400

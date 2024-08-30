@@ -24,7 +24,9 @@ Must complete all of these challenges:
 
 - [ ] Ensure all hero stats equal a sum of `20` plus the current amount of bonus. This total should never be above `25` with the bonus included.
 
-- [ ] Add keyboard controls for the drop down hero select button and menu item to be accessible
+- [x] Add keyboard controls for the drop down hero select button and menu item to be accessible
+    + Added keyboard controls of space to open the drop down, escape to close it, arrow keys up and down to navigate and enter to select a hero.
+
 - [x] Fix the image so it matches the rounding of its container and doesn’t change width/height when it changes
     + Added rounded as a class on img to match container rounding
     + Added object-fit: cover to ensure it maintains aspect ratio
@@ -32,6 +34,8 @@ Must complete all of these challenges:
 Please complete at least 2 of these additional challenges:
 
 - [x] Implement a "clear hero" feature after a hero selection is made, to return to the default `null` state.
+    + implemented new button to clear hero on pressing. styled using tailwind.
+
 - [x] Fix the style so the Selection button doesn’t break line and takes up empty space from the Bonus Button. The fix should not allow the text to overflow into sibling elements
 - [x] Make the box centered on the page using just TailwindCSS and a css flex-based solution.
  -used h-screen to ensure the body took up the whole screen then centered the body with flex items-center and justify-center
